@@ -32,3 +32,17 @@ var age = currentYear-birthYear;
 
 // Return calculated age
 alert(name+", your current age is calculated to be "+age+".");
+console.log(name+", your current age is calculated to be "+age+".");
+
+
+        // Make it Complicated
+
+// Calculate a future age
+var yearsIntoFuture = prompt("How many years into the future would\nyou like to calculate your age?");
+
+console.log(yearsIntoFuture);
+
+// Future age = current age + years into the future
+var futureAge=age+yearsIntoFuture;
+
+console.log(futureAge);
