@@ -43,6 +43,11 @@ var yearsIntoFuture = prompt("How many years into the future would\nyou like to 
 console.log(yearsIntoFuture);
 
 // Future age = current age + years into the future
-var futureAge=age+yearsIntoFuture;
+    //Cast variables as numbers when calculating
+var futureAge=parseInt(age)+parseInt(yearsIntoFuture);
 
 console.log(futureAge);
+
+//Log and alert final values
+alert(name+", you are "+age+" years old;\nin "+yearsIntoFuture+" years, you will be "+futureAge+".");
+console.log(name+", you are "+age+" years old;\nin "+yearsIntoFuture+" years, you will be "+futureAge+".");
