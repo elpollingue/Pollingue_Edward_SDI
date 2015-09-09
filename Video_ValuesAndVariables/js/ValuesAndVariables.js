@@ -5,3 +5,11 @@
 
 
 
+var yearBorn = 1983;
+
+/*
+console.log("Hello world!");
+console.log(yearBorn);
+*/
+
+alert("Hello world!");
