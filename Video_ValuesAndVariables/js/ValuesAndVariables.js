@@ -4,12 +4,7 @@
  */
 
 
+var age;                    // declaration
+age = 32;                   // definition
 
-var yearBorn = 1983;
-
-/*
-console.log("Hello world!");
-console.log(yearBorn);
-*/
-
-alert("Hello world!");
+var birthYear = 1983;       // simultaneous declaration & definition
