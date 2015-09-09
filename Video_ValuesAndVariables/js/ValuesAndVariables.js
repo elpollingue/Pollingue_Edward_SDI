@@ -4,7 +4,10 @@
  */
 
 
-var age;                    // declaration
-age = 32;                   // definition
+var age = 32;                   // Number variable
 
-var birthYear = 1983;       // simultaneous declaration & definition
+var isStudent = true;       // Boolean variable
+
+var firstName = "\'Edward\'\n is my first name.";   // String variable
+
+
