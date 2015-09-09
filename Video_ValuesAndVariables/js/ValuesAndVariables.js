@@ -4,10 +4,14 @@
  */
 
 
-var age = 32;                   // Number variable
-
-var isStudent = true;       // Boolean variable
-
-var firstName = "\'Edward\'\n is my first name.";   // String variable
+                //// ARRAYS ////
 
 
+var muppetNames = ["Kermit", "Miss Piggy"];
+
+muppetNames[2] = "Rizzo";
+muppetNames[3] = "Fozzy";
+
+var numeral = 0;
+
+console.log(muppetNames[numeral]);
