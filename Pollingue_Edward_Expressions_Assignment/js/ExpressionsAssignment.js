@@ -36,4 +36,21 @@ var days                =   Number(prompt("For what time period would you like t
 var totalWaterConsumption = ((flushesPerDay*waterConsumption[0])+(showersPerDay*waterConsumption[1])+(bathsPerDay*waterConsumption[2]))*days;
 
 
-console.log(totalWaterConsumption);
+///     Output results to the user and to console.log in a human readable format.
+alert("The average total household water consumption per day is "+totalWaterConsumption+" gallons.");
+console.log("The average total household water consumption per day is "+totalWaterConsumption+" gallons.");
+
+/*
+
+provided the following values:
+
+showers per day     -   2
+baths per day       -   4
+flushes per day     -   8
+water per shower    -   12
+water per bath      -   17
+number of days      -   7
+
+the value returned was: 733.6
+
+ */
