@@ -8,17 +8,32 @@
 ////    will be used to determine water consumption rates, and this information will be presented to the user.
 
 
-///  Inform user of the purpose of the calculator (in order to clarify the purpose of future prompts).
+///     Inform user of the purpose of the calculator (in order to clarify the purpose of future prompts).
 alert("This calculator will provide information concerning your household's water consumption.");
 
 
-///  Prompt for user input and define variables
+///     Prompt for user input and define variables
+// define the variable waterConsumption as an array.
+var waterConsumption    = [];
+// assign the value of 1.6 (gallons) per toilet flush; store value in array waterConsumption.
+waterConsumption[0]     = 1.6;
 // prompt for the number of showers per day and cast the returned value as a number.
 var showersPerDay       =   Number(prompt("How many showers are taken per day?"));
 // prompt for the number of baths per day and cast the returned value as a number.
 var bathsPerDay         =   Number(prompt("How many baths are taken per day?"));
-// prompt for the average amount of water consumed per shower; cast returned value as a number.
-var showerConsumption   =   Number(prompt("On average, how much water is used per shower?"));
-// prompt for the average amount of water consumed per bath; cast returned value as a number.
-var bathConsumption     =   Number(prompt("On average, how much water is used per bath?"));
+// prompt for the number of baths per day and cast the returned value as a number.
+var flushesPerDay       =   Number(prompt("How many times is a toilet flushed per day?"));
+// prompt for the average amount of water consumed per shower; cast returned value as a number; assign value to array.
+waterConsumption[1]     =   Number(prompt("On average, how much water is used per shower?"));
+// prompt for the average amount of water consumed per bath; cast returned value as a number; assign value to array.
+waterConsumption[2]     =   Number(prompt("On average, how much water is used per bath?"));
+// prompt for the number of days desired to be calculated; cast returned value as a number.
+var days                =   Number(prompt("For what time period would you like to calculate average household water usage?"));
 
+
+
+///     Perform calculations and define a variable as the output.
+var totalWaterConsumption = ((flushesPerDay*waterConsumption[0])+(showersPerDay*waterConsumption[1])+(bathsPerDay*waterConsumption[2]))*days;
+
+
+console.log(totalWaterConsumption);
