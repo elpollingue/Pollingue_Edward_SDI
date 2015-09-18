@@ -10,7 +10,8 @@
 
 ///     Inform user of the purpose of the calculator (in order to clarify the purpose of future prompts).
 alert("This calculator will provide information concerning your household's water consumption.");
-
+///     Ascertain the name of the household for which values will be calculated.
+var householdName   =   String(prompt("What is the name of the household for which calculations will be performed?"));
 
 ///     Prompt for user input and define variables
 // define the variable waterConsumption as an array.
@@ -28,21 +29,27 @@ waterConsumption[1]     =   Number(prompt("On average, how much water is used pe
 // prompt for the average amount of water consumed per bath; cast returned value as a number; assign value to array.
 waterConsumption[2]     =   Number(prompt("On average, how much water is used per bath?"));
 // prompt for the number of days desired to be calculated; cast returned value as a number.
-var days                =   Number(prompt("For what time period would you like to calculate average household water usage?"));
+var days                =   Number(prompt("For what number of days would you like to calculate average household water usage?"));
 
 
 
 ///     Perform calculations and define a variable as the output.
-var totalWaterConsumption = ((flushesPerDay*waterConsumption[0])+(showersPerDay*waterConsumption[1])+(bathsPerDay*waterConsumption[2]))*days;
+//  calculate the total water consumption by determining the consumption of each fixture per day, then multiplying the product by the
+//  number of days desired to be calculated.
+var totalWaterConsumption   = ((flushesPerDay*waterConsumption[0])+(showersPerDay*waterConsumption[1])+(bathsPerDay*waterConsumption[2]))*days;
+//  declare the variable perDayConsumption (solely for the purpose of having an initial value with which to determine the ultimate value
+//  of the variable, which will be equivalent to totalWaterConsumption divided by the number of days).
+var perDayConsumption       = totalWaterConsumption;
+perDayConsumption   /=  days;
 
 
 ///     Output results to the user and to console.log in a human readable format.
-alert("The average total household water consumption per day is "+totalWaterConsumption+" gallons.");
-console.log("The average total household water consumption per day is "+totalWaterConsumption+" gallons.");
+alert("In the \""+householdName+"\" household, the average total household water consumption per "+days+" day period is "+totalWaterConsumption+" gallons.\nThis is an average of "+perDayConsumption+" gallons per day.");
+console.log("In the \""+householdName+"\" household, the average total household water consumption per "+days+" day period is "+totalWaterConsumption+" gallons.\nThis is an average of "+perDayConsumption+" gallons per day.");
 
 /*
 
-provided the following values:
+the following values were provided:
 
 showers per day     -   2
 baths per day       -   4
