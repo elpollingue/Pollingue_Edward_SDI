@@ -13,20 +13,20 @@
 var liftMaxVolume   = Number(prompt("What is the maximum Volume (in cubic feet) the lift is capable of transporting?"));
 if (!liftMaxVolume) {liftMaxVolume = Number(prompt("A numeric value is required.\nWhat is the maximum Volume (in cubic feet) the lift is capable of transporting?"));}
 
-var liftMaxWeight   = Number(prompt("What is the maximum Weight the lift is capable of transporting?"));
-if (!liftMaxWeight) {liftMaxWeight = Number(prompt("A numeric value is required.\nWhat is the maximum Weight the lift is capable of transporting?"));}
+var liftMaxWeight   = Number(prompt("What is the maximum Weight (in tons) the lift is capable of transporting?"));
+if (!liftMaxWeight) {liftMaxWeight = Number(prompt("A numeric value is required.\nWhat is the maximum Weight (in tons) the lift is capable of transporting?"));}
 
-var cargoHeight     = Number(prompt("What is the Height of each unit to be transported?"));
-if (!cargoHeight) {cargoHeight = Number(prompt("A numeric value is required.\nWhat is the Height of each unit to be transported?"));}
+var cargoHeight     = Number(prompt("What is the Height (in inches) of each unit to be transported?"));
+if (!cargoHeight) {cargoHeight = Number(prompt("A numeric value is required.\nWhat is the Height (in inches) of each unit to be transported?"));}
 
-var cargoLength     = Number(prompt("What is the Length of each unit to be transported?"));
-if (!cargoLength) {cargoLength = Number(prompt("A numeric value is required.\nWhat is the Length of each unit to be transported?"));}
+var cargoLength     = Number(prompt("What is the Length (in inches) of each unit to be transported?"));
+if (!cargoLength) {cargoLength = Number(prompt("A numeric value is required.\nWhat is the Length (in inches) of each unit to be transported?"));}
 
-var cargoWidth      = Number(prompt("What is the Width of each unit to be transported?"));
-if (!cargoWidth) {cargoWidth = Number(prompt("A numeric value is required.\nWhat is the Width of each unit to be transported?"));}
+var cargoWidth      = Number(prompt("What is the Width (in inches) of each unit to be transported?"));
+if (!cargoWidth) {cargoWidth = Number(prompt("A numeric value is required.\nWhat is the Width (in inches) of each unit to be transported?"));}
 
-var cargoWeight     = Number(prompt("What is the Weight of each unit to be transported?"));
-if (!cargoWeight) {cargoWeight = Number(prompt("A numeric value is required.\nWhat is the Weight of each unit to be transported?"));}
+var cargoWeight     = Number(prompt("What is the Weight (in pounds) of each unit to be transported?"));
+if (!cargoWeight) {cargoWeight = Number(prompt("A numeric value is required.\nWhat is the Weight (in pounds) of each unit to be transported?"));}
 
 
 ///     Calculate maximum single load capacity based on user-defined values.
@@ -35,10 +35,10 @@ if (!cargoWeight) {cargoWeight = Number(prompt("A numeric value is required.\nWh
 var unitVolume      = cargoHeight*cargoLength*cargoWidth;
 
 //  Determine maximum quantity of units per load based on unit volume and maximum volume per load.
-var maxUnitsVolume  = liftMaxVolume/unitVolume;
+var maxUnitsVolume  = (liftMaxVolume*1728)/unitVolume;
 
 // Determine maximum quantity of units per load based on unit weight and maximum weight per load.
-var maxUnitsWeight  = liftMaxWeight/cargoWeight;
+var maxUnitsWeight  = (liftMaxWeight*2000)/cargoWeight;
 
 
 
