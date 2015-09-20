@@ -10,5 +10,11 @@
 
 ///     Ascertain user input for each relevant measurement; validate each input, and re-prompt if input was invalid.
 
-var liftMaxVolume   = Number(promtp("What is the maximum volume "))
-var unitVolume
+var liftMaxVolume   = Number(prompt("What is the maximum volume the lift is capable of transporting?"));
+if (!liftMaxVolume){liftMaxVolume = Number(prompt("A numeric value is required.\nWhat is the maximum volume the lift is capable of transporting?"));}
+
+
+
+alert (liftMaxVolume);
+
+//var unitVolume
