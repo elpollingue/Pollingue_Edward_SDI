@@ -32,39 +32,46 @@ var windy = confirm("Will the wind play a factor in the bird's flight?\n(If yes,
     //  If the wind is not to play a factor, define the relative wind velocity as a numeric value of zero.
     }else if (windy===false){var windSpeed = Number(0);}
 
-///     Call the function that will calculate the swallos's unladen air speed.
-var ladenAirSpeed   =   calcLadenAirSpeed(swallowMaxVelocity,windSpeed,weightRatio);
 
+///     This anonymous function will output the swallow's laden air speed based on the values submitted.
+var funcAirSpeed   =   function(maxSpeed,relativeWind,ratio){
+    // Determine the bird's air speed by adding its maximum speed to the relative wind speed, then multiplying that value by the weight ratio between the sparrow and coconut.
+    var birdSpeed   =   (maxSpeed+relativeWind)*ratio;
+    // Return the final value of the sparrow's laden air speed, with decimal values to the hundredths' place.
+    return(birdSpeed*ratio).toFixed(2);
+};
+///     Call the function to calculate the swallow's laden air speed.
+var ladenAirSpeed    =   funcAirSpeed(swallowMaxVelocity,windSpeed,weightRatio);
 
-///     Anonymous function that will calculate the trip time based on the laden air speed and distance to be travelled.
-
+///     This anonymous function will output a trip time that accounts for the sparrow's fatigue.
+var calcTripTime    =   function(ladenSpeed,distance,ratio){
+    // Find the base trip duration by dividing overall distance by the swallow's laden air speed.
+    var     rawDuration         =   distance/ladenSpeed;
+    // Calculate the fatigued speed of the bird based on an equation involving the swallow's laden air speed, the weight ratio of the swallow to the coconut, and the (arbitrary) number 12.
+    var     fatigueSpeed        =   (ladenSpeed*ratio*12);
+    // Find the adjusted trip time based on the newly calculated raw trip duration and adjusted swallow's speed.
+    var     adjustedTripTime    =   rawDuration/fatigueSpeed;
+    // Return the adjusted trip time in the form of a numeric value that includes two decimal places.
+    return  (adjustedTripTime.toFixed(2));
+};
+///     Call the function to calculate the adjusted trip time; pass it established variables as arguments.
 var tripTime        =   calcTripTime(ladenAirSpeed,distanceToTravel,weightRatio);
 
 
 
-
-///     This function will output the swallow's laden air speed based on the values submitted.
-function    calcLadenAirSpeed(maxSpeed,relativeWind,ratio){
-    var birdSpeed   =   (maxSpeed+relativeWind)*ratio;
-    return(birdSpeed*ratio);
-}
-
-///     This function will output a trip time that accounts for the sparrow's fatigue.
-function    calcTripTime(ladenSpeed,distance,ratio){
-    var     rawDuration         =   distance/ladenSpeed;
-    var     fatigueSpeed        =   ladenSpeed*(ratio*10);
-    var     adjustedTripTime    =   rawDuration/fatigueSpeed;
-    return  (adjustedTripTime.toFixed(2));
-}
+///     Output relevant values in a human readable format; convert the trip time from hours to minutes before reporting.
+alert("A "+swallowMass+" ounce swallow, carrying a "+coconutMass+" ounce coconut, travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately"+Math.floor(tripTime*60)+" minutes.");
+console.log("A "+swallowMass+" ounce swallow, carrying a "+coconutMass+" ounce coconut, travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately "+Math.floor(tripTime*60)+" minutes.");
 
 
+/*
+With the following values submitted:
+32 oz   coconut
+3.6 oz  swallow
+6 miles trip distance
+45 mph  maximum unladen air speed
 
-console.log("coconutMass = "+coconutMass);
-console.log("swallowMass = "+swallowMass);
-console.log("swallowMaxVelocity = "+swallowMaxVelocity);
-console.log("It is "+windy+" that it is windy today.");
-console.log("Wind velocity = "+windSpeed);
-console.log("Ten plus the relative wind velocity equals "+(10+windSpeed));
-
-console.log("ladenAirSpeed = "+ladenAirSpeed);
-console.log("Adjusted trip time = "+tripTime);
+The following values were returned:
+0.68 mph    adjusted speed
+576 minute  trip time
+ */
