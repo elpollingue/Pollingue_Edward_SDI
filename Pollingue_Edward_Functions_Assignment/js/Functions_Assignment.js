@@ -21,10 +21,15 @@ var swallowMaxVelocity  =   Number(prompt("What is the maximum velocity (in mile
 var distanceToTravel    =   Number(prompt("What distance (in miles) is the coconut to be transported?"));
     while (!distanceToTravel){var distanceToTravel = Number(prompt("A numeric entry is required.\nWhat distance (in miles) is the coconut to be transported?"));}
 //  Determine whether the wind will play a factor in the swallow's flight.
-var windy               =   confirm("Will the wind play a factor in the bird's flight?\n(If yes, choose 'Ok'; if no, choose 'Cancel')");
-    if(windy===true){windImpact};
+var windy = confirm("Will the wind play a factor in the bird's flight?\n(If yes, choose 'Ok'; if no, choose 'Cancel')");
+//  If the wind is to play a factor, prompt for the value of its impact; validate and cast input.
+    if (windy===true) {
+        var windVelocity = Number(prompt("What is the wind's relative velocity (in miles per hour)?"));
+        while (!windVelocity) {
+            var windVelocity = Number(prompt("A numeric entry is required.\nWhat is the wind's relative velocity (in miles per hour)?"));
+        }
+    }else if (windy===false){var windVelocity = 0;}
 
-function windImpact()
 
 
 ///     Define the function
@@ -36,5 +41,4 @@ console.log("coconutMass = "+coconutMass);
 console.log("swallowMass = "+swallowMass);
 console.log("swallowMaxVelocity = "+swallowMaxVelocity);
 console.log("It is "+windy+" that it is windy today.");
-
-
+console.log("Wind velocity = "+windVelocity);
