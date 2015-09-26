@@ -60,8 +60,8 @@ var tripTime        =   calcTripTime(ladenAirSpeed,distanceToTravel,weightRatio)
 
 
 ///     Output relevant values in a human readable format; convert the trip time from hours to minutes before reporting.
-alert("A "+swallowMass+" ounce swallow, carrying a "+coconutMass+" ounce coconut, travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately"+Math.floor(tripTime*60)+" minutes.");
-console.log("A "+swallowMass+" ounce swallow, carrying a "+coconutMass+" ounce coconut, travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately "+Math.floor(tripTime*60)+" minutes.");
+alert("A "+swallowMass+" ounce swallow with a maximum unladen air speed of "+swallowMaxVelocity+" mph, while carrying a "+coconutMass+" ounce coconut and travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately "+Math.floor(tripTime*60)+" minutes.");
+console.log("A "+swallowMass+" ounce swallow with a maximum unladen air speed of "+swallowMaxVelocity+" mph, while carrying a "+coconutMass+" ounce coconut and travelling a distance of "+distanceToTravel+" miles, will travel at an approximate speed of "+ladenAirSpeed+" miles per hour, and complete the journey in approximately "+Math.floor(tripTime*60)+" minutes.");
 
 
 /*
